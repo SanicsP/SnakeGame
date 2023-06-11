@@ -3,10 +3,11 @@
 #include "SankeHead.h"
 #include "SnakeBody.h"
 #include "Fruit.h"
+#include "border.h"
 
 int main()
 {
-	sf::VideoMode screen_size(500, 400);
+	sf::VideoMode screen_size(500, 500);
 	sf::RenderWindow win(screen_size, "snake");
 	sf::Event event;
 	
@@ -20,6 +21,7 @@ int main()
 	fruit.attchScreen(&screen_size);
 	fruit.Replace();
 	
+	Border background(&snake_head, &screen_size);
 
 	for (int i = 0; i < 2; i++)
 		body.addCell();
@@ -27,6 +29,7 @@ int main()
 	sf::Clock clock;
 	sf::Time UpdateDelta(sf::milliseconds(100));
 	win.setFramerateLimit(60);
+
 	while (win.isOpen())
 	{
 		while (win.pollEvent(event))
@@ -37,6 +40,7 @@ int main()
 			}
 		}
 		snake_head.map_diretion();
+		background.Wrrap();
 		if (clock.getElapsedTime().asSeconds() >= UpdateDelta.asSeconds())
 		{
 			snake_head.Update();
