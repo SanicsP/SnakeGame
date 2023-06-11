@@ -2,18 +2,28 @@
 #include <SFML/Graphics.hpp>
 #include "SankeHead.h"
 #include "SnakeBody.h"
+#include "Fruit.h"
 
 int main()
 {
-	sf::RenderWindow win(sf::VideoMode(500, 500), "snake");
+	sf::VideoMode screen_size(500, 400);
+	sf::RenderWindow win(screen_size, "snake");
 	sf::Event event;
 	
 	SnakeHead snake_head;
 	SnakeBody body(&snake_head);
 	snake_head.attach_body(&body);
-	for (int i = 0; i < 50; i++)
-		body.addCell();
+	
+	
+	Fruit fruit;
+	fruit.attachHead(&snake_head);
+	fruit.attchScreen(&screen_size);
+	fruit.Replace();
+	
 
+	for (int i = 0; i < 2; i++)
+		body.addCell();
+	
 	sf::Clock clock;
 	sf::Time UpdateDelta(sf::milliseconds(100));
 	win.setFramerateLimit(60);
@@ -30,11 +40,13 @@ int main()
 		if (clock.getElapsedTime().asSeconds() >= UpdateDelta.asSeconds())
 		{
 			snake_head.Update();
+			fruit.Update();
 			clock.restart();
 		}
 		win.clear();
 		win.draw(snake_head);
 		win.draw(body);
+		win.draw(fruit);
 		win.display();
 
 	}

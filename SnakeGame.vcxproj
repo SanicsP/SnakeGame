@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SankeHead.cpp" />
     <ClCompile Include="SnakeBody.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Cell.h" />
     <ClInclude Include="direction.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Fruit.h" />
     <ClInclude Include="SankeHead.h" />
     <ClInclude Include="SnakeBody.h" />
   </ItemGroup>

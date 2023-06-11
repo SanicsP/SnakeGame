@@ -15,6 +15,7 @@ public :
 	void attach_body(SnakeBody* body);
 	void kill();
 	bool isDead() const;
+	SnakeBody* getBody() const;
 private : 
 	direction m_current_dir;
 	std::unique_ptr<SnakeBody> mp_body;

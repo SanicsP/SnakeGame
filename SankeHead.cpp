@@ -75,3 +75,8 @@ bool SnakeHead::isDead() const
 {
 	return m_is_dead;
 }
+
+SnakeBody* SnakeHead::getBody() const
+{
+	return mp_body.get();
+}
