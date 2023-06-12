@@ -80,3 +80,10 @@ SnakeBody* SnakeHead::getBody() const
 {
 	return mp_body.get();
 }
+
+void SnakeHead::restart()
+{
+	setPosition(sf::Vector2i(5, 5));
+	Update();
+	m_is_dead = false;
+}

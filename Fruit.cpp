@@ -5,8 +5,9 @@
 #include <random>
 #include <chrono>
 #include <iostream>
+#include "Score.h"
 
-Fruit::Fruit() : Cell() , mp_screen_size(nullptr)
+Fruit::Fruit() : Cell() , mp_screen_size(nullptr) , mp_score(nullptr)
 {
 	m_rectangle.setFillColor(sf::Color::White);
 }
@@ -18,8 +19,13 @@ void Fruit::Update()
 		std::cout << "colide" << std::endl;
 		Replace();
 		mp_head->getBody()->addCell();
+		mp_score->addScore(1);
 
 		std::cout << "new position " << m_pos.x << " " << m_pos.y << std::endl;
+	}
+	if (mp_head->isDead())
+	{
+		mp_score->resetScore();
 	}
 }
 
@@ -46,4 +52,9 @@ void Fruit::attachHead(SnakeHead* head)
 void Fruit::attchScreen(sf::VideoMode* screen)
 {
 	mp_screen_size = screen;
+}
+
+void Fruit::attachScore(Score* score)
+{
+	mp_score.reset(score);
 }

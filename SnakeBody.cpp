@@ -38,6 +38,12 @@ void SnakeBody::setLastPos(sf::Vector2i last_pos)
 	m_head_last_pos = last_pos;
 }
 
+void SnakeBody::reset()
+{
+	m_cells.clear();
+	m_cells.push_back(Cell());
+}
+
 void SnakeBody::replace_all_cells()
 {
 	sf::Vector2i ghostPos;

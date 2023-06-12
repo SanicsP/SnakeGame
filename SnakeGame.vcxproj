@@ -151,6 +151,7 @@
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SankeHead.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="SnakeBody.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="SankeHead.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="SnakeBody.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

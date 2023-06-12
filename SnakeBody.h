@@ -15,7 +15,7 @@ public :
 	void addCell();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	void setLastPos(sf::Vector2i last_pos);
-	
+	void reset();
 private : 
 	std::unique_ptr<SnakeHead> mp_head;
 	std::vector<Cell> m_cells;
